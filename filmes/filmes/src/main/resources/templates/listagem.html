@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"></html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>TADS DSW - Projeto Semestral</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='..\static\css\style.css'>
+    <script src='main.js'></script>
+</head>
+<div>
+    <body>
+        <h1 id="titulo">TADS - Atividade DSW - Filmes</h1>
+        <table>
+            <thead>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Gênero</th>
+                <th>Ano Lançamento</th>
+            </thead>
+            <tr th:each="filme : ${filmes}">
+                <td th:text="${filme.id}"></td>
+                <td th:text="${filme.titulo}"></td>
+                <td th:text="${filme.genero}"></td>
+                <td th:text="${filme.anoLancamento}"></td>
+            </tr>
+        </table>
+    </body>
+</div>
+</html>
