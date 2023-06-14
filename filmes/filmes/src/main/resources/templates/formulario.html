@@ -8,20 +8,40 @@
     <title>Formulario de Filme</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='..\static\css\style.css'>
-    <script src='main.js'></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
 
 <body>
     <h1>Formulário de Filme</h1>
-    <form action="/filmes/novo" method="post" th:object="${filme}">
+    <form action="/filmes/novo" method="POST" th:object="${filme}">
         <label>Título:</label>
-        <input type="text" th:field="*{titulo}" required><br>
+        <input id="titulo" type="text" th:field="*{titulo}" required><br>
+        <span id="erro" style="color: red;"></span><br>
+
         <label>Gênero:</label>
-        <input type="text" th:field="*{genero}" required><br>
+        <input id="genero" type="text" th:field="*{genero}" required><br>
+        <span id="erro" style="color: red;"></span><br>
+
         <label>Ano de Lançamento:</label>
-        <input type="number" th:field="*{anoLancamento}" required><br>
-        <input type="submit" value="Salvar">
+        <input id="lancamento" type="text" th:field="*{anoLancamento}" required><br>
+        <span id="erro" style="color: red;"></span><br>
+
+        <input type="button" value="Cancelar" class="botao-cancelar" onclick="location.href='/filmes/listar'" style="color: black; background-color: aliceblue;">
+        <input type="submit" value="Enviar">
     </form>
 </body>
+<script>
+    function validarCampos() {
+        var campo1 = document.getElementById("titulo").value;
+        var campo2 = document.getElementById("genero").value;
+        var campo3 = document.getElementById("lancamento").value;
+        
+        if (campo1 === "" || campo2 === "" || campo3 === "") {
+            return false;
+            document.getElementById("erro").textContent = "Campo obrigatório";
+        }
+        return true
+    }
+</script>
 
 </html>
