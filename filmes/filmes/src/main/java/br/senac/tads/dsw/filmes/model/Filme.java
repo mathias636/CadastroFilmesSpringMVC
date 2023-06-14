@@ -2,15 +2,24 @@ package br.senac.tads.dsw.filmes.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+// import javax.persistence.Entity;
+// import javax.persistence.GeneratedValue;
+// import javax.persistence.GenerationType;
+// import javax.persistence.Id;
+// import javax.persistence.Table;
 
 @Entity
 @Table(name = "filmes")
 public class Filme implements Serializable {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String titulo;
@@ -43,6 +52,5 @@ public class Filme implements Serializable {
     public void setAnoLancamento(String anoLancamento) {
         this.anoLancamento = anoLancamento;
     }
-
     
 }

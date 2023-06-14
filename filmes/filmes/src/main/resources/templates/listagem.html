@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"></html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+</html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -10,22 +13,29 @@
     <script src='main.js'></script>
 </head>
 <div>
+
     <body>
-        <h1 id="titulo">TADS - Atividade DSW - Filmes</h1>
-        <table>
-            <thead>
-                <th>ID</th>
-                <th>Título</th>
-                <th>Gênero</th>
-                <th>Ano Lançamento</th>
-            </thead>
-            <tr th:each="filme : ${filmes}">
-                <td th:text="${filme.id}"></td>
-                <td th:text="${filme.titulo}"></td>
-                <td th:text="${filme.genero}"></td>
-                <td th:text="${filme.anoLancamento}"></td>
-            </tr>
-        </table>
+        <h1 id="titulo">Listagem de FIlmes</h1>
+        <div th:if="${not #lists.isEmpty(filmes)}">
+            <table>
+                <thead>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Gênero</th>
+                    <th>Ano Lançamento</th>
+                </thead>
+                <tr th:each="filme : ${filmes}">
+                    <td th:text="${filme.id}"></td>
+                    <td th:text="${filme.titulo}"></td>
+                    <td th:text="${filme.genero}"></td>
+                    <td th:text="${filme.anoLancamento}"></td>
+                </tr>
+            </table>
+        </div>
+        <div th:if="${#lists.isEmpty(filmes)}">
+            <p>Não há filmes cadastrados</p>
+        </div>
     </body>
 </div>
+
 </html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"></html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Formulario de Filme</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='..\static\css\style.css'>
+    <script src='main.js'></script>
+</head>
+
+<body>
+    <h1>Formulário de Filme</h1>
+    <form action="/filmes/novo" method="post" th:object="${filme}">
+        <label>Título:</label>
+        <input type="text" th:field="*{titulo}" required><br>
+        <label>Gênero:</label>
+        <input type="text" th:field="*{genero}" required><br>
+        <label>Ano de Lançamento:</label>
+        <input type="number" th:field="*{anoLancamento}" required><br>
+        <input type="submit" value="Salvar">
+    </form>
+</body>
+
+</html>
